@@ -29,7 +29,7 @@ public void setPrecio(float precio) {
 	this.precio = precio;
 }
 public String mostrar() {
-	return "id "+idProducto +" "+producto+"<--producto";
+	return "id "+idProducto +" "+producto+"<--producto"+ " precio--> "+precio ;
 	
 }
 

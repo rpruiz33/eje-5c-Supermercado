@@ -13,6 +13,7 @@ public class Test {
 		System.out.println(supermercado.agregarProducto("yogur",32.4f));
 		System.out.println(supermercado.agregarProducto("carne",32.4f));
 		System.out.println(supermercado.traerProducto(2).mostrar());
+		System.out.println(supermercado.modificarProducto(2,"pollo",123.3));
 	}
 
 }

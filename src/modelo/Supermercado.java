@@ -53,4 +53,20 @@ public class Supermercado {
 			}
 		return null;
 	}
+	
+
+	
+	public boolean modificarProducto(int idProducto,String producto,double precio) {
+	 Producto p1=new Producto (idProducto,producto,(float) precio);
+	if (!traerProducto(idProducto).equals(null)) {;
+	p1.setProducto(producto);
+	p1.setPrecio((float)precio);
+	System.out.println("modificando producto");
+	System.out.println(p1.mostrar());
+	return true;
+	}
+	 return false;
+	}
+	
 }
+
