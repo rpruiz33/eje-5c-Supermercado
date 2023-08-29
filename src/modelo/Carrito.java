@@ -41,7 +41,34 @@ public Carrito(int idCarrito, LocalDate fecha, LocalTime hora, List<ItemCarrito>
 	this.hora = hora;
 	Lst = lst;
 }
+public boolean agregarProductoCarrito(String producto, float precio, int cantidad) {
+	int i = 0;
 
+	while (i < Lst.size()) {
+
+		if (((Lst.get(i).getProducto().equals(producto))) && precio == (Lst.get(i).getProducto().getPrecio())) {
+			return false;
+		}
+		i++;
+	}
+	Producto p1 = new Producto(Lst.size() + 1, producto, precio);
+	ItemCarrito nuevo = new ItemCarrito(Lst.size() + 1, p1, cantidad);
+	System.out.println();
+	System.out.println(nuevo.getIdItem()); 
+	Lst.add(nuevo);
+	return true;
+}
+
+public Producto traerProducto(int idProducto) {
+	int i = 0;
+	while (i < Lst.size()) {
+		if ((idProducto == Lst.get(i).getIdItem())) {
+			return Lst.get(i).getProducto();
+			}
+		i++;
+		}
+	return null;
+}
 
 
 

@@ -58,7 +58,7 @@ public class Supermercado {
 	
 	public boolean modificarProducto(int idProducto,String producto,double precio) {
 	 Producto p1=new Producto (idProducto,producto,(float) precio);
-	if (!traerProducto(idProducto).equals(null)) {;
+	if (!traerProducto(idProducto).equals(null)) {
 	p1.setProducto(producto);
 	p1.setPrecio((float)precio);
 	System.out.println("modificando producto");
@@ -67,6 +67,13 @@ public class Supermercado {
 	}
 	 return false;
 	}
+	// + eliminarProducto(int idProducto) : boolean
+	public boolean eliminarProducto(int idProducto) {
+		if (!traerProducto(idProducto).equals(null)) {
 	
+	}
+		return;
 }
+	
+}	
 
