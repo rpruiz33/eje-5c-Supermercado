@@ -1,6 +1,9 @@
 package modelo;
 
 public class Producto {
+public Producto() {
+		super();
+	}
 private int idProducto;
 private String producto;
 private float precio;

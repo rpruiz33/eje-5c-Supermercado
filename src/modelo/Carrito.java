@@ -1,5 +1,6 @@
 package modelo;
 import java.time.LocalDate;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,7 +10,8 @@ public class Carrito {
 private int idCarrito;
 private LocalDate fecha;
 private LocalTime hora;
-private List<ItemCarrito>  Lst;
+private List<ItemCarrito> Lst;
+
 public int getIdCarrito() {
 	return idCarrito;
 }
@@ -34,12 +36,13 @@ public List<ItemCarrito> getLst() {
 public void setLst(List<ItemCarrito> lst) {
 	Lst = lst;
 }
-public Carrito(int idCarrito, LocalDate fecha, LocalTime hora, List<ItemCarrito> lst) {
+public Carrito(int idCarrito, LocalDate fecha, LocalTime hora, List<ItemCarrito> lst1) {
 	super();
 	this.idCarrito = idCarrito;
 	this.fecha = fecha;
 	this.hora = hora;
-	Lst = lst;
+
+	Lst=lst1;
 }
 public boolean agregarProductoCarrito(String producto, float precio, int cantidad) {
 	int i = 0;
@@ -59,20 +62,55 @@ public boolean agregarProductoCarrito(String producto, float precio, int cantida
 	return true;
 }
 
-public Producto traerProducto(int idProducto) {
+public Producto traerProductoCarrito(int idProducto) {
 	int i = 0;
 	while (i < Lst.size()) {
-		if ((idProducto == Lst.get(i).getIdItem())) {
-			return Lst.get(i).getProducto();
+  
+        if (idProducto == Lst.get(i).getIdItem()) {
+            return Lst.get(i).getProducto();
+        }
+        i++;
+    }
+   
+    return null;
+}
+//
+
+public boolean eliminarItem(Producto producto, int cantidad) throws Exception {
+	int i = 0;
+	while (i < Lst.size()) {
+
+		if (Lst.get(i).getProducto().equals(producto)) {
+
+			if (cantidad == Lst.get(i).getCantidad()) {
+
+				Lst.remove(i);
+				return true;
 			}
-		i++;
+			if (cantidad < Lst.get(i).getCantidad()) {
+
+				Lst.get(i).setCantidad(Lst.get(i).getCantidad() - cantidad);
+				return true;
+
+			}
+			i++;
+
 		}
-	return null;
+	}
+	throw new Exception("El producto no existe en el carrito.");
+}
+	public float subTotal() {
+		int i=0;
+		float acum=0;
+		while(i<Lst.size()) {
+			acum=Lst.get(i).getProducto().getPrecio()+acum;
+			i++;
+		}
+	return acum;
+	}
 }
 
 
 
 
 
-
-}

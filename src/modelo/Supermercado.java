@@ -25,13 +25,13 @@ public class Supermercado {
 		this.gondola = productos;
 	}
 
-	public boolean agregarProducto(String producto, float precio) {
+	public boolean agregarProducto(String producto, float precio)throws Exception {
 		int i = 0;
 
 		while (i < gondola.size()) {
 
 			if (((gondola.get(i).getProducto().equals(producto))) && precio == (gondola.get(i).getPrecio())) {
-				return false;
+				throw new Exception("Error: El producto ya exite en la lista");
 			}
 			i++;
 		}
@@ -43,36 +43,48 @@ public class Supermercado {
 	}
 
 
-	public Producto traerProducto(int idProducto) {
+	public Producto traerProducto(int idProducto)  {
+		
 		int i = 0;
 		while (i < gondola.size()) {
-			if ((idProducto == gondola.get(i).getIdProducto())) {
+			
+			if (idProducto == gondola.get(i).getIdProducto()) {
+				
 				return gondola.get(i);
+			
+				
 				}
 			i++;
+		
+			
+			
 			}
 		return null;
+		
+		
 	}
 	
 
 	
-	public boolean modificarProducto(int idProducto,String producto,double precio) {
+	public boolean modificarProducto(int idProducto,String producto,double precio) throws Exception{
 	 Producto p1=new Producto (idProducto,producto,(float) precio);
 	if (!traerProducto(idProducto).equals(null)) {
+		throw new Exception("Error: El producto  no existe en la lista");
+	}
 	p1.setProducto(producto);
 	p1.setPrecio((float)precio);
 	System.out.println("modificando producto");
 	System.out.println(p1.mostrar());
 	return true;
 	}
-	 return false;
-	}
-	// + eliminarProducto(int idProducto) : boolean
-	public boolean eliminarProducto(int idProducto) {
-		if (!traerProducto(idProducto).equals(null)) {
 	
+	
+	// + eliminarProducto(int idProducto) : boolean
+	public boolean eliminarProducto(int idProducto)throws Exception {
+		if (traerProducto(idProducto)==null) {
+			throw new Exception("Error: El producto  no existe en la lista");
 	}
-		return;
+		return gondola.remove(traerProducto(idProducto));
 }
 	
 }	

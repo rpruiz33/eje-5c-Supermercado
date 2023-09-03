@@ -34,6 +34,14 @@ public ItemCarrito(int idItem, Producto producto, int cantidad) {
 	this.producto = producto;
 	this.cantidad = cantidad;
 }
+public ItemCarrito() {
+	super();
+}
+
+//+ eliminarItem (Producto producto, int cantidad) : boolean
 
 
 }
+
+
+
