@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 import java.time.LocalTime;
 
@@ -35,7 +36,8 @@ public class Supermercado {
 			}
 			i++;
 		}
-		Producto nuevo = new Producto(gondola.size() + 1, producto, precio);
+		int idpro=gondola.get(gondola.size() -1).getIdProducto()+1;
+		Producto nuevo = new Producto(idpro, producto, precio);
 		System.out.println();
 		System.out.println(nuevo.getIdProducto()); 
 		gondola.add(nuevo);
@@ -86,6 +88,11 @@ public class Supermercado {
 	}
 		return gondola.remove(traerProducto(idProducto));
 }
+
+
+	
+	
+
 	
 }	
 

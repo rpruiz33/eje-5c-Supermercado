@@ -49,7 +49,7 @@ public boolean agregarProductoCarrito(String producto, float precio, int cantida
 
 	while (i < Lst.size()) {
 
-		if (((Lst.get(i).getProducto().equals(producto))) && precio == (Lst.get(i).getProducto().getPrecio())) {
+		if (((Lst.get(i).getProducto().toString().equals(producto))) && precio == (Lst.get(i).getProducto().getPrecio())) {
 			return false;
 		}
 		i++;

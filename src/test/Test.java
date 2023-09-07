@@ -35,14 +35,14 @@ public class Test {
 		System.out.println(carri.agregarProductoCarrito("MILA", 22.2f, 1));
 		System.out.println("TRAER PRODUCTO");
 
-		System.out.println(supermercado.traerProducto(1).mostrar());
+		System.out.println(supermercado.traerProducto(1));
 
 		System.out.println(carri.traerProductoCarrito(1).toString());
 		
 
 		System.out.println("modificar PRODUCTO");
 		try {
-			System.out.println(supermercado.modificarProducto(1, "carne",32.4));
+			System.out.println(supermercado.modificarProducto(0, "carne",32.4));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());

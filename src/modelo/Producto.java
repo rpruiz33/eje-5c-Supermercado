@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Objects;
+
 public class Producto {
 public Producto() {
 		super();
@@ -35,5 +37,18 @@ public String mostrar() {
 	return "id "+idProducto +" "+producto+"<--producto"+ " precio--> "+precio ;
 	
 }
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) {
+        return true;
+    }
+    if (obj == null || getClass() != obj.getClass()) {
+        return false;
+    }
+    
+    Producto otroProducto = (Producto) obj;
+    
+    return Objects.equals(idProducto, otroProducto.idProducto);
 
+}
 }
